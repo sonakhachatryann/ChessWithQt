@@ -26,7 +26,7 @@ private:
     int col_;
     bool has_chess_piece_;
     QString chess_piece_color_;
-    QColor color_; //??? what is this meant for?
+    QColor color_;
 };
 
 #endif // CHESSBOX_H
