@@ -2,13 +2,14 @@
 #define CHESSBOX_H
 
 #include <QGraphicsRectItem>
+#include <QBrush>
+#include "chesspiece.h"
 
+class ChessPiece;
 class ChessBox : public QGraphicsRectItem {
 public:
-    ChessBox();
+    ChessBox(QGraphicsItem* parent = nullptr);
     ~ChessBox();
-
-    void set_color(QColor color);
 
     //getters/setters
     int get_row() const;
@@ -19,7 +20,13 @@ public:
     void set_has_chess_piece(bool);
     QString get_chess_piece_color() const;
     void set_chess_piece_color(const QString&);
+    void set_color(const QColor&);
+    QColor get_color() const;
+    ChessPiece* get_current_piece() const;
+    void set_current_piece(ChessPiece*);
 
+    void ResetInitialColor();
+    void placePiece(ChessPiece* piece);
 
 private:
     int row_;
@@ -27,6 +34,8 @@ private:
     bool has_chess_piece_;
     QString chess_piece_color_;
     QColor color_;
+    QBrush brush;
+    ChessPiece* current_piece_;
 };
 
 #endif // CHESSBOX_H

@@ -1,8 +1,9 @@
 #include "chesspiece.h"
 
 ChessPiece::ChessPiece(QString team, QGraphicsItem* parent)
-    : team_(team)
-    , is_placed_(true) {}
+    : QGraphicsPixmapItem(parent)
+    , is_placed_(true)
+    ,  team_(team){}
 
 bool ChessPiece::get_is_placed() const {
     return is_placed_;
@@ -30,4 +31,10 @@ void ChessPiece::set_box(ChessBox* box) {
 
 QList<ChessBox*> ChessPiece::get_possible_locations() const {
     return possible_locations;
+}
+
+void ChessPiece::Decolor() {
+    for(qsizetype i = 0; i < possible_locations.size(); ++i) {
+        possible_locations[i]->ResetInitialColor();
+    }
 }

@@ -3,9 +3,9 @@
 
 #include <QGraphicsPixmapItem>
 #include <QString>
-
 #include "chessbox.h"
 
+class ChessBox;
 class ChessPiece : public QGraphicsPixmapItem {
 public:
     ChessPiece(QString team = "", QGraphicsItem* parent = 0);
@@ -23,7 +23,7 @@ public:
     virtual void Move() = 0;
 
 protected:
-    void decolor();
+    void Decolor();
 
 private:
     bool is_placed_;
