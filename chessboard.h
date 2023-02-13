@@ -3,11 +3,17 @@
 
 #include <QGraphicsItem>
 #include "chesspiece.h"
+
 class ChessBoard {
 
 public:
     ChessBoard();
 
+    void DrawChessBoxes();
+    void DrawWhites();
+    void DrawBlacks();
+    void AddPiece();
+    void Reset();
 
 private:
     QList<ChessPiece*> whites_;
